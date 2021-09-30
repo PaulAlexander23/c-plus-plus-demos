@@ -1,20 +1,35 @@
+
+DRIVERS_DIR=drivers/
+SOURCES_DIR=src/
+BUILD_DIR=build/
+
 DRIVERS=main.cpp
-SOURCES=hello.cpp goodbye.cpp
+SOURCES=hello.cpp goodbye.cpp outputter.cpp
 
+DRIVERS_INCLUDE=-I./drivers/
+SOURCES_INCLUDE=-I./src/
 
-all: main.out
+SRC=$(wildcard $(SOURCES_DIR)*.cpp)
+OBJ=$(patsubst $(SOURCES_DIR)%.cpp,$(BUILD_DIR)%.o,$(SRC))
+DVR=$(wildcard $(DRIVERS_DIR)*.cpp)
+DVR_OBJ=$(patsubst $(DRIVERS_DIR)%.cpp,%.o,$(DVR))
+OUT=$(patsubst $(DRIVERS_DIR)%.cpp,%.out,$(DVR))
 
-hello.o: hello.cpp
-	g++ -c $^ -o $@
+all: $(OBJ) $(DVR_OBJ) $(OUT)
+	echo $(SRC)
+	echo $(OBJ)
+	echo $(DVR)
+	echo $(DVR_OBJ)
+	echo $(OUT)
 
-goodbye.o: goodbye.cpp
-	g++ -c $^ -o $@
+$(OBJ): $(SRC)
+	g++ -c $< -o $@
 
-main.o: main.cpp
-	g++ -c $^ -o $@
+$(DVR_OBJ): $(DVR)
+	g++ $(SOURCES_INCLUDE) -c $< -o $@
 
-main.out: hello.o main.o goodbye.o
-	g++ $^ -o $@
+$(OUT): $(DVR_OBJ)
+	g++ $(OBJ) $< -o $@
 
 clean:
-	rm -rf *.o *.out
+	rm -rf build/* main.o main.out
