@@ -1,38 +1,47 @@
 
-DRIVERS_DIR=./
-SOURCES_DIR=./
+DRIVER_DIR=drivers/
+SOURCE_DIR=src/
 BUILD_DIR=build/
+BIN_DIR=bin/
 
+DRIVER_INCLUDE=-I$(DRIVER_DIR)
+SOURCE_INCLUDE=-I$(SOURCE_DIR)
 
-DRIVERS_INCLUDE=-I$(DRIVERS_DIR)
-SOURCES_INCLUDE=-I$(SOURCES_INCLUDE)
+#SRC=hello.cpp goodbye.cpp outputter.cpp
+#OBJ=hello.o goodbye.o outputter.o
+#DVR=main.cpp
+#DVR_OBJ=main.o
+#OUT=main.out
+SRC=$(wildcard $(SOURCE_DIR)*.cpp)
+OBJ=$(patsubst $(SOURCE_DIR)%.cpp,$(BUILD_DIR)%.o,$(SRC))
 
-SRC=hello.cpp goodbye.cpp outputter.cpp
-OBJ=hello.o goodbye.o outputter.o
-DVR=main.cpp
-DVR_OBJ=main.o
-OUT=main.out
-#SRC=$(wildcard $(SOURCES_DIR)*.cpp)
-#OBJ=$(patsubst $(SOURCES_DIR)%.cpp,$(BUILD_DIR)%.o,$(SRC))
-#DVR=$(wildcard $(DRIVERS_DIR)*.cpp)
-#DVR_OBJ=$(patsubst $(DRIVERS_DIR)%.cpp,%.o,$(DVR))
-#OUT=$(patsubst $(DRIVERS_DIR)%.cpp,%.out,$(DVR))
+DVR=$(wildcard $(DRIVER_DIR)*.cpp)
+DVR_OBJ=$(patsubst $(DRIVER_DIR)%.cpp,$(BUILD_DIR)%.o,$(DVR))
 
-all: $(OBJ) $(DVR_OBJ) $(OUT)
-	echo $(SRC)
-	echo $(OBJ)
-	echo $(DVR)
-	echo $(DVR_OBJ)
-	echo $(OUT)
+OUT=$(patsubst $(DRIVER_DIR)%.cpp,$(BIN_DIR)%.out,$(DVR))
 
-$(OBJ): $(SRC)
-	g++ -c $< -o $@
+CC=g++
+#CXXFLAGS+= -MMD -include $(OBJ:.o=.d)
 
-$(DVR_OBJ): $(DVR)
-	g++ -c $< -o $@
+LD=g++
 
-$(OUT): $(DVR_OBJ)
-	g++ $(OBJ) $< -o $@
+all: $(OUT)
+
+$(BUILD_DIR)%.o: $(SOURCE_DIR)%.cpp
+	mkdir -p build/
+	$(CC) $(CXXFLAGS) -c $< -o $@ 
+
+$(BUILD_DIR)%.o: $(DRIVER_DIR)%.cpp	
+	mkdir -p build/
+	$(CC) $(CXXFLAGS) -I$(SOURCE_DIR) -c $< -o $@
+
+$(OUT): $(OBJ) $(DVR_OBJ)
+	mkdir -p bin/
+	$(LD) $^ -o $@
+
+# Specify targets without explicit outputs as phony
+.PHONY: clean check-build-dir
 
 clean:
-	rm -rf *.o *.out
+	rm -rf *.o *.out build/ bin/
+
