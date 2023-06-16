@@ -1,0 +1,13 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-o",
+            "pass_bulk_element_function.out",
+            "pass_bulk_element_function.cpp"
+        ],
+        "directory": "/home/k60056ja/Repositories/c-plus-plus-demos/pass-bulk-element-function",
+        "file": "pass_bulk_element_function.cpp"
+    }
+]

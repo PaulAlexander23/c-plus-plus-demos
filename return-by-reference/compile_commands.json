@@ -1,0 +1,13 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-o",
+            "return_by_reference.out",
+            "return_by_reference.cpp"
+        ],
+        "directory": "/home/k60056ja/Repositories/c-plus-plus-demos/return-by-reference",
+        "file": "return_by_reference.cpp"
+    }
+]

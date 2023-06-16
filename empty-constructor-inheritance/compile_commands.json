@@ -1,0 +1,13 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-o",
+            "empty_constructor_inheritance.out",
+            "empty_constructor_inheritance.cpp"
+        ],
+        "directory": "/home/k60056ja/Repositories/c-plus-plus-demos/empty-constructor-inheritance",
+        "file": "empty_constructor_inheritance.cpp"
+    }
+]

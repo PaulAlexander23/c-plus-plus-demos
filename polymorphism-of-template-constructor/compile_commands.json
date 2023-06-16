@@ -1,0 +1,13 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-o",
+            "polymorphism_of_template_constructor.out",
+            "polymorphism_of_template_constructor.cpp"
+        ],
+        "directory": "/home/k60056ja/Repositories/c-plus-plus-demos/polymorphism-of-template-constructor",
+        "file": "polymorphism_of_template_constructor.cpp"
+    }
+]

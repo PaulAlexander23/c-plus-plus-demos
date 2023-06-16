@@ -1,0 +1,7 @@
+PWD /home/k60056ja/Repositories/c-plus-plus-demos/pass-bulk-element-function
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT pass_bulk_element_function.cpp
+OUTPUT pass_bulk_element_function.log

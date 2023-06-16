@@ -44,30 +44,30 @@ int main() {
 
   const unsigned a4 = 3;
   test_static_template_members<a4> my_obj;
-  cout<<"Get static member: "<<my_obj.get_static_member()<<endl;
+  cout << "Get static member: " << my_obj.get_static_member() << endl;
   my_obj.set_static_member(3);
-  cout<<"Get static member: "<<my_obj.get_static_member()<<endl;
-  cout<<"Power(3): "<<my_obj.power(3)<<endl;
+  cout << "Get static member: " << my_obj.get_static_member() << endl;
+  cout << "Power(3): " << my_obj.power(3) << endl;
 
   test_static_template_members<2> my_obj2;
 
-  cout<<"Get static member: "<<my_obj.get_static_member()<<endl;
+  cout << "Get static member: " << my_obj.get_static_member() << endl;
 
   my_obj.set_static_member(2);
 
-  cout<<"Get static member: "<<my_obj2.get_static_member()<<endl;
+  cout << "Get static member: " << my_obj2.get_static_member() << endl;
 
-  cout<<"Power(3): "<<my_obj2.power(3)<<endl;
+  cout << "Power(3): " << my_obj2.power(3) << endl;
 
   test_static_template_members<3> my_obj3;
 
-  cout<<"Get static member: "<<my_obj.get_static_member()<<endl;
+  cout << "Get static member: " << my_obj.get_static_member() << endl;
 
   my_obj.set_static_member(2);
 
-  cout<<"Get static member: "<<my_obj3.get_static_member()<<endl;
+  cout << "Get static member: " << my_obj3.get_static_member() << endl;
 
-  cout<<"Power(3): "<<my_obj3.power(3)<<endl;
+  cout << "Power(3): " << my_obj3.power(3) << endl;
 
   cout << "End of Template script" << endl;
 
