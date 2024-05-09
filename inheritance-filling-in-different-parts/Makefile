@@ -1,0 +1,3 @@
+run: inheritance
+	./inheritance
+inheritance:

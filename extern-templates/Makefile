@@ -1,3 +1,6 @@
-build:
-	g++ -c my_header.cpp 
-	g++ my_header.o extern-templates.cpp -o extern-templates.out
+
+extern-templates: my_class.o extern-templates.cc
+	g++ my_class.o extern-templates.cc -o extern-templates.out -Q
+
+my_class.o: my_class.cc
+	g++ -c my_class.cc 
