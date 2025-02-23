@@ -1,3 +1,5 @@
 .ccls-cache/
 tags
 *.out
+*.o
+

@@ -18,6 +18,9 @@ int main() {
     cout << "theta2: " << theta2 << ", ";
     cout << endl;
   }
+  for (unsigned n = 0; n < 6; n++) {
+    cout << n << " " << floor(n / 2) << " " << n % 2 << endl;
+  }
 
   return 0;
 }
