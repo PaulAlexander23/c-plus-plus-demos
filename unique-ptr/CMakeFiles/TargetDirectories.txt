@@ -1,0 +1,3 @@
+/home/paul/Repositories/c-plus-plus-demos/unique-ptr/CMakeFiles/main.dir
+/home/paul/Repositories/c-plus-plus-demos/unique-ptr/CMakeFiles/edit_cache.dir
+/home/paul/Repositories/c-plus-plus-demos/unique-ptr/CMakeFiles/rebuild_cache.dir

@@ -1,30 +1,27 @@
 #include <iostream>
 #include <string>
 
-class A
-{
+class A {
 public:
-    A(const int& v=0) : V(v) {}
-    void do_something(const int& new_v)
-    {
-        // Redefined; does not override internal data
-        int V = new_v;
-        printf("do_something(): V=%d\n", V);
-    }
-    void print_v()
-    {
-        printf("print_v(): V=%d\n", V);
-    }
+  A(const int &v = 0) : V(v) {}
+  void do_something(const int &new_v) {
+    // Redefined; does not override internal data
+    int V = new_v;
+    printf("do_something(): V=%d\n", V);
+  }
+  void print_v() { printf("print_v(): V=%d\n", V); }
+
 private:
-    int V;
+  int V;
 };
 
-int main()
-{
-    A a;
-    a.print_v();
-    a.do_something(100);
-    a.print_v();
+int main() {
+  A a;
+  a.print_v();
+  a.do_something(100);
+  a.print_v();
+  double b(0.0);
+  std::cout << b << std::endl;
 }
 
 // print_v(): V=0
